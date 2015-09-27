@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FRS</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_vacancy">VacancyActivity</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <string name="title_activity_vacancy_view">VacancyViewActivity</string>
+    <string name="title_activity_application">ApplicationActivity</string>
+    <string name="title_activity_experience">ExperienceActivity</string>
+</resources>
