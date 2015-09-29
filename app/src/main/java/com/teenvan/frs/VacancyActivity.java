@@ -2,6 +2,7 @@ package com.teenvan.frs;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
@@ -35,6 +36,7 @@ public class VacancyActivity extends AppCompatActivity {
         //Referencing the UI elements
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //Get the data from Parse
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Vacancies");

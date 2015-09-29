@@ -64,6 +64,14 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+        mVacanciesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the applicant activity
+                Intent intent = new Intent(SignInActivity.this,ApplicationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

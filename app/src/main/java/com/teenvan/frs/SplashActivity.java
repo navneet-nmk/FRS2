@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the vacancy activity
-                Intent intent = new Intent(SplashActivity.this, VacancyActivity.class);
+                Intent intent = new Intent(SplashActivity.this, ApplicationActivity.class);
                 startActivity(intent);
             }
         });
