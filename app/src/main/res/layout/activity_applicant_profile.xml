@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:context="com.teenvan.frs.ApplicantProfileActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navneet M Kumar"
+        android:textSize="20sp"
+        android:id="@+id/applicantNameProfileText"
+        android:textColor="@android:color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mathematics"
+        android:layout_marginTop="4dp"
+        android:textSize="15sp"
+        android:id="@+id/departmentText"
+        android:layout_below="@+id/applicantNameProfileText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Educational Details"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/eduDetails"
+        android:layout_below="@+id/departmentText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Btech 1997, Nit Hamirpur."
+        android:textSize="15sp"
+        android:id="@+id/btechText"
+        android:layout_below="@+id/eduDetails"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+    <TextView
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Btech CGPA : 7.8"
+        android:id="@+id/cgpaText"
+        android:textSize="15sp"
+        android:layout_below="@+id/btechText"/>
+    <TextView
+        android:layout_marginTop="4dp"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mtech 2004, Nit Hamirpur."
+        android:layout_below="@+id/cgpaText"
+        android:id="@+id/mtechText"
+        />
+    <TextView
+        android:layout_marginTop="4dp"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mtech CGPA : 7.8"
+        android:id="@+id/mcgpaText"
+        android:layout_below="@+id/mtechText"/>
+
+    <TextView
+        android:id="@+id/researchTextProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Research Papers"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/mcgpaText"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15 papers"
+        android:layout_marginTop="4dp"
+        android:textSize="15sp"
+        android:id="@+id/numberResearchText"
+        android:layout_below="@+id/researchTextProfile"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experience"
+        android:layout_below="@+id/numberResearchText"
+        android:layout_marginTop="20dp"
+        android:id="@+id/experienceTextProfile"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23 Years"
+        android:layout_below="@+id/experienceTextProfile"
+        android:textSize="15sp"
+        android:id="@+id/numberExpereinceText"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Resume"
+        android:id="@+id/viewResumeButton"
+        android:layout_alignTop="@+id/applicantNameProfileText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+
+
+</RelativeLayout>

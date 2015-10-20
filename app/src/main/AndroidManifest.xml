@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name" >
+            android:label="Faculty Recruitment System" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,27 +22,43 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="FRS" >
+            android:label="Job Applicants" >
         </activity>
         <activity
             android:name=".VacancyActivity"
-            android:label="@string/title_activity_vacancy" >
+            android:label="Vacancies" >
         </activity>
         <activity
             android:name=".SignInActivity"
-            android:label="@string/title_activity_sign_in" >
+            android:label="Sign In" >
         </activity>
         <activity
             android:name=".VacancyViewActivity"
-            android:label="@string/title_activity_vacancy_view" >
+            android:label="View Vacancy" >
         </activity>
         <activity
             android:name=".ApplicationActivity"
-            android:label="@string/title_activity_application" >
+            android:label="Job Application" >
         </activity>
         <activity
             android:name=".ExperienceActivity"
-            android:label="@string/title_activity_experience" >
+            android:label="Expereince" >
+        </activity>
+        <activity
+            android:name=".EducationalActivity"
+            android:label="Educational Details">
+        </activity>
+        <activity
+            android:name=".ResearchActivity"
+            android:label="Research Details">
+        </activity>
+        <activity
+            android:name=".LinkedinLoginActivtiy"
+            android:label="Login With Linkedin">
+        </activity>
+        <activity
+            android:name=".ApplicantProfileActivity"
+            android:label="Applicant Profile">
         </activity>
     </application>
 

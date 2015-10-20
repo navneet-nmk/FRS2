@@ -1,6 +1,8 @@
 package com.teenvan.frs;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,16 +15,31 @@ public class SplashActivity extends AppCompatActivity {
 
     // Declaration of member variables
     private Button mApplicantButton , mMemberButton;
-    private TextView mTitle;
+    private TextView mTitle, mLnmiit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ActionBar bar = getSupportActionBar();
+        if(bar != null){
+            bar.hide();
+        }
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "fonts/Montserrat-SemiBold.otf");
+        Typeface tv = Typeface.createFromAsset(getAssets(),
+                "fonts/Montserrat-Regular.otf");
         // Referencing the UI elements
+
         mApplicantButton = (Button)findViewById(R.id.applicantButton);
         mMemberButton = (Button)findViewById(R.id.memberButton);
         mTitle = (TextView)findViewById(R.id.frsText);
+        mLnmiit = (TextView)findViewById(R.id.instituteText);
+
+        mTitle.setTypeface(tv);
+        mLnmiit.setTypeface(tv);
+        mApplicantButton.setTypeface(tv);
+        mMemberButton.setTypeface(tv);
 
         // Setting up the click listeners
         mApplicantButton.setOnClickListener(new View.OnClickListener() {

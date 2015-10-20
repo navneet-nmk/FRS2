@@ -9,4 +9,11 @@
     <string name="title_activity_vacancy_view">VacancyViewActivity</string>
     <string name="title_activity_application">ApplicationActivity</string>
     <string name="title_activity_experience">ExperienceActivity</string>
+    <string name="title_activity_educational">EducationalActivity</string>
+    <string name="title_activity_research">ResearchActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_linkedin_login_activtiy">LinkedinLoginActivtiy</string>
+    <string name="title_activity_applicant_profile">ApplicantProfileActivity</string>
 </resources>

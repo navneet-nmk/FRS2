@@ -1,6 +1,7 @@
 package com.teenvan.frs;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        Typeface tv = Typeface.createFromAsset(getAssets(),
+                "fonts/Montserrat-Regular.otf");
 
         //Referencing the UI elements
         mLoginButton = (Button)findViewById(R.id.loginButton);
@@ -34,6 +37,11 @@ public class SignInActivity extends AppCompatActivity {
         mUsername = (EditText)findViewById(R.id.username);
         mPassword = (EditText)findViewById(R.id.password);
         mRelativeLayout = (RelativeLayout)findViewById(R.id.relativeView);
+
+        mLoginButton.setTypeface(tv);
+        mVacanciesButton.setTypeface(tv);
+        mUsername.setTypeface(tv);
+        mPassword.setTypeface(tv);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

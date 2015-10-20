@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                tools:context="com.teenvan.frs.ResearchActivity">
+
+
+    <TextView
+        android:id="@+id/phdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PhD Qualifications"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PhD Specialization"
+        android:id="@+id/specializationEditText"
+        android:layout_below="@+id/phdTitle"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Institute"
+        android:id="@+id/instituteEditTextP"
+        android:layout_below="@+id/specializationEditText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:id="@+id/currentText"
+        android:layout_below="@+id/instituteEditTextP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Current Position"
+        android:layout_below="@+id/currentText"
+        android:id="@+id/currentEditText"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Research Papers"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:id="@+id/researchText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/currentEditText"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of Research Papers"
+        android:inputType="number"
+        android:layout_below="@+id/researchText"
+        android:id="@+id/numberResearchEditText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experience"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:id="@+id/experienceText"
+        android:layout_below="@+id/numberResearchEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberExpereinceEditText"
+        android:inputType="number"
+        android:hint="Number of years of Expereince"
+        android:layout_below="@+id/experienceText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:layout_marginTop="28dp"
+        android:id="@+id/confirmApplicationButton"
+        android:layout_below="@+id/numberExpereinceEditText"
+        android:layout_alignLeft="@+id/numberExpereinceEditText"
+        android:layout_alignStart="@+id/numberExpereinceEditText"/>
+
+
+</RelativeLayout>

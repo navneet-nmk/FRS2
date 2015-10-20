@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,18 +15,16 @@ import java.util.List;
 /**
  * Created by navneet on 27/09/15.
  */
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class ApplicantListAdapter extends RecyclerView.Adapter<ApplicantListAdapter.ViewHolder> {
 
     // Declaration of member variables
-    private List<String> mVacancyTitle, mVacancyPosted, mVacancyDeadline;
+    private List<String> mVacancyTitle, mApplicant;
     private Context mContext;
 
-    public ListAdapter(Context context,
-                       ArrayList<String> mVacancyTitle,ArrayList<String> mVacancyPosted
-                            ,ArrayList<String> mVacancyDeadline) {
+    public ApplicantListAdapter(Context context,
+                                ArrayList<String> mVacancyTitle, ArrayList<String> mApplicant) {
         super();
-        this.mVacancyDeadline = mVacancyDeadline;
-        this.mVacancyPosted = mVacancyPosted;
+        this.mApplicant = mApplicant;
         this.mVacancyTitle = mVacancyTitle;
         mContext = context;
 
@@ -36,24 +33,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.list_item, viewGroup, false);
+                .inflate(R.layout.applicant_list_item, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(ApplicantListAdapter.ViewHolder viewHolder, final int i) {
         viewHolder.vacancyTitle.setText(mVacancyTitle.get(i));
-        viewHolder.vacancyPosted.setText(mVacancyPosted.get(i));
-        viewHolder.vacancyDeadline.setText(mVacancyDeadline.get(i));
+        viewHolder.mApplicantName.setText(mApplicant.get(i));
         viewHolder.vacancyViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the view
-                Intent intent = new Intent(mContext, VacancyViewActivity.class);
-                intent.putExtra("Title",mVacancyTitle.get(i));
-                intent.putExtra("PostDate",mVacancyPosted.get(i));
-                intent.putExtra("Deadline",mVacancyPosted.get(i));
+                Intent intent = new Intent(mContext, ApplicantProfileActivity.class);
+                intent.putExtra("Name",mApplicant.get(i));
                 mContext.startActivity(intent);
             }
         });
@@ -68,15 +62,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView vacancyTitle;
-        public TextView vacancyPosted;
-        public TextView vacancyDeadline;
+        public TextView mApplicantName;
         public Button vacancyViewButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            vacancyTitle = (TextView)itemView.findViewById(R.id.designationText);
-            vacancyPosted = (TextView)itemView.findViewById(R.id.postedValue);
-            vacancyDeadline = (TextView)itemView.findViewById(R.id.deadlineValue);
+            vacancyTitle = (TextView)itemView.findViewById(R.id.designantionAppText);
+            mApplicantName = (TextView)itemView.findViewById(R.id.applicantNameText);
             vacancyViewButton = (Button)itemView.findViewById(R.id.viewButton);
         }
     }

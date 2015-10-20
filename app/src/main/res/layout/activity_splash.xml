@@ -10,11 +10,12 @@
 
     <TextView
         android:text="Faculty Recruitment System"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textColor="@android:color/black"
         android:id="@+id/frsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="167dp"/>
@@ -33,8 +34,17 @@
         android:layout_height="wrap_content"
         android:text="Committee Member"
         android:id="@+id/memberButton"
+        android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="39dp"/>
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="LNMIIT"
+        android:id="@+id/instituteText"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                tools:context="com.teenvan.frs.EducationalActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BTech Qualifications"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:id="@+id/btechTitle"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Division of Engineering"
+        android:layout_below="@+id/btechTitle"
+        android:id="@+id/divisionEditText"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Year of Graduation"
+        android:inputType="number"
+        android:layout_below="@+id/divisionEditText"
+        android:id="@+id/yearEditText"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Institute"
+        android:layout_below="@+id/yearEditText"
+        android:id="@+id/instituteEditTextB"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Percentage/CGPA"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/instituteEditTextB"
+        android:id="@+id/percEditText"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MTech Qualifications"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:id="@+id/mtechTitle"
+        android:layout_below="@+id/percEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Division of Engineering"
+        android:layout_below="@+id/mtechTitle"
+        android:id="@+id/mdivisionEditText"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Year of Graduation"
+        android:inputType="number"
+        android:layout_below="@+id/mdivisionEditText"
+        android:id="@+id/myearEditText"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Institute"
+        android:layout_below="@+id/myearEditText"
+        android:id="@+id/minstituteEditTextB"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Percentage/CGPA"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/minstituteEditTextB"
+        android:id="@+id/mpercEditText"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:id="@+id/proceedButton"
+        android:layout_below="@+id/mpercEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+</RelativeLayout>
