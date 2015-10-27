@@ -36,7 +36,7 @@ import java.net.URISyntaxException;
 public class ApplicationActivity extends AppCompatActivity  {
     // Declaration of member variables
     private EditText mName,mEmail,mContact,mInstitute,mAge, mPassword;
-    private Button mConfirmButton, mUploadButton, mLinkedinButton;
+    private Button mConfirmButton, mUploadButton;
     private static final int FILE_SELECT_CODE = 0;
     private byte[] parseFileData;
     private ParseFile file;
@@ -57,7 +57,6 @@ public class ApplicationActivity extends AppCompatActivity  {
         mInstitute = (EditText)findViewById(R.id.instituteEditText);
         mAge = (EditText)findViewById(R.id.ageEditText);
         mConfirmButton = (Button)findViewById(R.id.confirmButton);
-        mLinkedinButton = (Button)findViewById(R.id.linkedinButton);
 
         mUploadButton.setTypeface(tv);
         mName.setTypeface(tv);
@@ -67,7 +66,6 @@ public class ApplicationActivity extends AppCompatActivity  {
         mContact.setTypeface(tv);
         mInstitute.setTypeface(tv);
         mAge.setTypeface(tv);
-        mLinkedinButton.setTypeface(tv);
 
         // Set the click listener of the button
         mUploadButton.setOnClickListener(new View.OnClickListener() {
@@ -151,14 +149,7 @@ public class ApplicationActivity extends AppCompatActivity  {
                 }
             }
         });
-        mLinkedinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Linkedin Login
-                Intent intent = new Intent(ApplicationActivity.this, LinkedinLoginActivtiy.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override

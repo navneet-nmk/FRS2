@@ -8,21 +8,173 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".MainActivity">
 
-    <Spinner
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown"/>
+        android:id="@+id/nameLayout">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Candidate 1"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:id="@+id/candidateNameText"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/spinner"
-        android:id="@+id/applicantRecyclerView"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/desigText"
+            android:text="Associate Professor, Mathematics"
+            android:layout_below="@+id/candidateNameText"
+            android:textSize="17sp"
+            android:layout_marginTop="4dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/qualificationsLayout"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/nameLayout">
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:id="@+id/btechCText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BTech, LNMIIT Jaipur"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:id="@+id/mtechCText"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/btechCText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BTech, LNMIIT Jaipur"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:id="@+id/phdCText"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mtechCText"
+            android:text="BTech, LNMIIT Jaipur"/>
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:id="@+id/researchCText"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phdCText"
+            android:text="15 Research Papers"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 years experience"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/expereinceCText"
+            android:layout_below="@+id/researchCText"
+            android:layout_marginTop="4dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Resume"
+        android:id="@+id/viewResumeCButton"
+        android:layout_below="@+id/qualificationsLayout"
+        android:layout_marginTop="10dp"/>
+
+    
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingsLayout"
+        android:layout_below="@+id/viewResumeCButton"
+        android:layout_marginTop="12dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate the Candidate"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/rateText"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rateText"
+            android:layout_marginTop="4dp"
+            android:id="@+id/resumeLayout">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resume"
+                android:id="@+id/resumeText"
+                android:textSize="17sp"/>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_below="@id/resumeText"
+                android:layout_centerVertical="true"
+              />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resumeLayout"
+            android:id="@+id/profileLayout">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:id="@+id/profileText"
+                android:textSize="17sp"/>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pratingBar"
+                android:layout_below="@id/profileText"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileLayout"
+        android:text="Confirm"
+        android:id="@+id/confirmCButton"/>
+
+    </RelativeLayout>
+
+
+
 
 </RelativeLayout>
