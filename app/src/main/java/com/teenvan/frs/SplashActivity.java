@@ -25,10 +25,10 @@ public class SplashActivity extends AppCompatActivity {
         if(bar != null){
             bar.hide();
         }
-        Typeface tf = Typeface.createFromAsset(getAssets(),
-                "fonts/Montserrat-SemiBold.otf");
         Typeface tv = Typeface.createFromAsset(getAssets(),
                 "fonts/Montserrat-Regular.otf");
+
+
         // Referencing the UI elements
 
         mApplicantButton = (Button)findViewById(R.id.applicantButton);
@@ -40,6 +40,8 @@ public class SplashActivity extends AppCompatActivity {
         mLnmiit.setTypeface(tv);
         mApplicantButton.setTypeface(tv);
         mMemberButton.setTypeface(tv);
+
+
 
         // Setting up the click listeners
         mApplicantButton.setOnClickListener(new View.OnClickListener() {

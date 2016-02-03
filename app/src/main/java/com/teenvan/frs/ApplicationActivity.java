@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,20 +37,21 @@ import java.net.URISyntaxException;
 public class ApplicationActivity extends AppCompatActivity  {
     // Declaration of member variables
     private EditText mName,mEmail,mContact,mInstitute,mAge, mPassword;
-    private Button mConfirmButton, mUploadButton;
-    private static final int FILE_SELECT_CODE = 0;
-    private byte[] parseFileData;
+    private Button mConfirmButton;
     private ParseFile file;
-    private static final String SOCIAL_NETWORK_TAG = "Linkedin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
         setContentView(R.layout.activity_application);
+
         Typeface tv = Typeface.createFromAsset(getAssets(),
                 "fonts/Montserrat-Regular.otf");
         // Referencing the UI elements
-        mUploadButton = (Button)findViewById(R.id.uploadButton);
+        // mUploadButton = (Button)findViewById(R.id.uploadButton);
         mName = (EditText)findViewById(R.id.nameEditText);
         mPassword = (EditText)findViewById(R.id.passEditText);
         mEmail = (EditText)findViewById(R.id.emailEditText);
@@ -58,7 +60,7 @@ public class ApplicationActivity extends AppCompatActivity  {
         mAge = (EditText)findViewById(R.id.ageEditText);
         mConfirmButton = (Button)findViewById(R.id.confirmButton);
 
-        mUploadButton.setTypeface(tv);
+       // mUploadButton.setTypeface(tv);
         mName.setTypeface(tv);
         mPassword.setTypeface(tv);
         mEmail.setTypeface(tv);
@@ -67,27 +69,10 @@ public class ApplicationActivity extends AppCompatActivity  {
         mInstitute.setTypeface(tv);
         mAge.setTypeface(tv);
 
-        // Set the click listener of the button
-        mUploadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Upload the cv and save to parse
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                try{
-                    startActivityForResult(Intent.createChooser(intent,"Select your CV"),
-                            FILE_SELECT_CODE);
-                }catch (android.content.ActivityNotFoundException ex){
-                    Toast.makeText(ApplicationActivity.this, "Please install a File Manager.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
         mConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               setProgressBarIndeterminateVisibility(true);
                 // Get the strings from the edit texts
                 final String password = mPassword.getText().toString();
                 final String name = mName.getText().toString();
@@ -97,35 +82,24 @@ public class ApplicationActivity extends AppCompatActivity  {
                 final String age = mAge.getText().toString();
                 if (name.isEmpty() || password.isEmpty() || email.isEmpty() || contact.isEmpty()
                         || institute.isEmpty() || age.isEmpty()) {
+                    setProgressBarIndeterminateVisibility(false);
                     Toast.makeText(ApplicationActivity.this, "Enter all details",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    // Create a Parse Object
-                    if (parseFileData != null) {
-                        file = new ParseFile(parseFileData);
-                    }else{
-                        file = null;
-                        Toast.makeText(ApplicationActivity.this, "Please upload your CV",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                    file.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null) {
                                 ParseUser user = new ParseUser();
                                 user.put("UserType", "Applicant");
                                 user.setUsername(name);
                                 user.setEmail(email);
                                 user.setPassword(password);
+                                user.put("Designation","CSE");
                                 user.put("Contact", contact);
+                                user.put("IsShortlisted",false);
                                 user.put("Institute", institute);
                                 user.put("Age", age);
-                                if( file != null) {
-                                    user.put("CV", file);
-                                }
                                 user.signUpInBackground(new SignUpCallback() {
                                     @Override
                                     public void done(ParseException e) {
+                                        setProgressBarIndeterminateVisibility(false);
                                         if (e == null) {
                                             // Success
                                             Intent intent = new Intent(ApplicationActivity.this,
@@ -140,11 +114,7 @@ public class ApplicationActivity extends AppCompatActivity  {
                                     }
                                 });
 
-                            } else {
 
-                            }
-                        }
-                    });
 
                 }
             }
@@ -174,51 +144,7 @@ public class ApplicationActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case FILE_SELECT_CODE:
-                if (resultCode == RESULT_OK) {
-                    // Get the Uri of the selected file
-                    Uri uri = data.getData();
-                    Log.d("File", "File Uri: " + uri.toString());
-                    Log.d("File","File URi path "+uri.getPath());
-                    try {
-                        InputStream stream = getContentResolver().openInputStream(uri);
-                        byte[] inputData = getBytes(stream);
-                        parseFileData = inputData;
 
-
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-
-                    // Get the path
-
-                    // Get the file instance
-                    // File file = new File(path);
-                    // Initiate the upload
-                }
-                break;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-
-
-    }
-    public byte[] getBytes(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
-        int bufferSize = 1024;
-        byte[] buffer = new byte[bufferSize];
-
-        int len = 0;
-        while ((len = inputStream.read(buffer)) != -1) {
-            byteBuffer.write(buffer, 0, len);
-        }
-        return byteBuffer.toByteArray();
-    }
 
 
 

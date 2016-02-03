@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -27,6 +28,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_sign_in);
         Typeface tv = Typeface.createFromAsset(getAssets(),
                 "fonts/Montserrat-Regular.otf");
@@ -46,10 +48,12 @@ public class SignInActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setProgressBarIndeterminateVisibility(true);
                 // Get the required strings
-                String username = mUsername.getText().toString();
+                final String username = mUsername.getText().toString();
                 String password = mPassword.getText().toString();
                 if(username.isEmpty() || password.isEmpty()){
+                    setProgressBarIndeterminateVisibility(false);
                     // Show error
                     Snackbar.make(mRelativeLayout,"Please enter all details",Snackbar.LENGTH_SHORT)
                             .show();
@@ -57,12 +61,19 @@ public class SignInActivity extends AppCompatActivity {
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser parseUser, ParseException e) {
+                            setProgressBarIndeterminateVisibility(false);
                             if( e==null){
                                 // Successfully logged in
-                                Intent intent = new Intent(SignInActivity.this,
-                                        MainActivity.class);
-                                startActivity(intent);
-                            }else{
+                                if(username.equals("DOFA")){
+                                    Intent intent = new Intent(SignInActivity.this,
+                                            DofaViewActivity.class);
+                                    startActivity(intent);
+                                }else  {
+                                    Intent intent = new Intent(SignInActivity.this,
+                                            MemberViewActivity.class);
+                                    startActivity(intent);
+                                }
+                                }else{
                                 Log.d("SignInActivity","Error",e);
                                 Toast.makeText(SignInActivity.this,"There was some error!" +
                                         "Try again",Toast.LENGTH_SHORT).show();
@@ -75,6 +86,7 @@ public class SignInActivity extends AppCompatActivity {
         mVacanciesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setProgressBarIndeterminateVisibility(false);
                 // Open the applicant activity
                 Intent intent = new Intent(SignInActivity.this,ApplicationActivity.class);
                 startActivity(intent);

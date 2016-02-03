@@ -2,6 +2,8 @@ package com.teenvan.frs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,19 +49,26 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final ListAdapter.ViewHolder viewHolder, final int i) {
+        Typeface tv = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/Montserrat-Regular.otf");
         viewHolder.vacancyTitle.setText(mVacancyTitle.get(i));
         viewHolder.vacancyPosted.setText(mVacancyPosted.get(i));
         viewHolder.vacancyDeadline.setText(mVacancyDeadline.get(i));
+        viewHolder.vacancyTitle.setTypeface(tv);
+        viewHolder.vacancyPosted.setTypeface(tv);
+        viewHolder.vacancyDeadline.setTypeface(tv);
+        viewHolder.vacancyViewButton.setTypeface(tv);
         viewHolder.vacancyViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the view
-                Intent intent = new Intent(mContext, VacancyViewActivity.class);
-                intent.putExtra("Title",mVacancyTitle.get(i));
-                intent.putExtra("PostDate",mVacancyPosted.get(i));
-                intent.putExtra("Deadline",mVacancyPosted.get(i));
-                mContext.startActivity(intent);
+                // Save in Application
+                ParseQuery<ParseUser> userQ = ParseUser.getQuery();
+                userQ.whereEqualTo("UserType","Applicant");
+                Toast.makeText(mContext,"Applied for "+mVacancyTitle.get(i),Toast.LENGTH_SHORT).show();
+                viewHolder.vacancyViewButton.setEnabled(false);
+                viewHolder.vacancyViewButton.setBackgroundColor(mContext.getResources().getColor(R.color.cardview_light_background));
             }
         });
     }
